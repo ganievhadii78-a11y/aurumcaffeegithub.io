@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - AURUM</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+background:#0b0b0b;
+color:#fff;
+font-family:Poppins;
+}
+
+
+header{
+display:flex;
+align-items:center;
+gap:15px;
+padding:20px 60px;
+background:#000;
+}
+
+
+.back-btn{
+text-decoration:none;
+color:#fff;
+border:1px solid #d4af37;
+padding:8px 15px;
+border-radius:8px;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#d4af37;
+color:#000;
+}
+
+h1{
+text-align:center;
+margin:40px 0;
+}
+.contact-container{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:40px;
+padding:20px;
+}
+
+
+.contact-info{
+background:#111;
+padding:25px;
+border-radius:12px;
+width:300px;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.contact-info h3{
+margin-bottom:15px;
+color:#d4af37;
+}
+
+.contact-info p{
+margin:10px 0;
+}
+
+
+.map{
+width:500px;
+max-width:100%;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+
+footer{
+text-align:center;
+margin:40px;
+color:#777;
+}
+.social{
+position:fixed;
+bottom:20px;
+left:20px;
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:1000;
+}
+
+.icon{
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+color:#fff;
+font-size:22px;
+text-decoration:none;
+transition:0.3s;
+box-shadow:0 0 10px rgba(0,0,0,0.5);
+}
+
+
+.insta{
+background:linear-gradient(45deg,#feda75,#d62976,#962fbf);
+}
+
+
+.whatsapp{
+background:#25D366;
+}
+
+.icon:hover{
+transform:scale(1.2);
+box-shadow:0 0 20px #d4af37;
+}
+</style>
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<body>
+
+<header>
+<a href="index.html" class="back-btn">← Башкы бет</a>
+<h2>AURUM</h2>
+</header>
+
+<h1>Биз менен байланыш</h1>
+
+<div class="contact-container">
+
+
+<div class="contact-info">
+<h3>Байланыш</h3>
+
+<p> Телефон: +996 557 999 902</p>
+<p> Дарек: ул. Ю. Абдрахманова, 10</p>
+<p> Орентир: Старый авторынок</p>
+
+</div>
+
+<div class="map">
+<iframe 
+src="https://yandex.ru/map-widget/v1/?text=Жалал-Абад%20ул.%20Ю.%20Абдрахманова%2010&z=17"
+width="100%" 
+height="350" 
+frameborder="0">
+</iframe>
+</div>
+
+</div>
+
+<footer>
+© 2026 AURUM Restaurant
+</footer>
+<div class="social">
+  
+  
+  <a href="https://www.instagram.com/aurum_jld?igsh=eWV4ZWxmNGNuNTAw" target="_blank" class="icon insta">
+    <i class="fab fa-instagram"></i>
+  </a>
+
+  <a href="https://wa.me/996557999902" target="_blank" class="icon whatsapp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+</div>
+
+</body>
+</html>

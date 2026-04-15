@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<a href="Index.html">Башкы бет</a>
+<title>AURUM MENU</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0b0b0b;color:#fff;font-family:Poppins;}
+
+header{display:flex;justify-content:space-between;padding:20px 60px;background:#000;}
+
+.filter{text-align:center;margin:30px;}
+.filter button{
+margin:5px;
+padding:10px 15px;
+border:1px solid #d4af37;
+background:none;
+color:#fff;
+cursor:pointer;
+}
+.filter button:hover{background:#d4af37;color:#000;}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:40px;
+}
+.card img{
+width:100%;
+height:150px;
+object-fit:cover;
+cursor:pointer;
+}
+
+.price{color:#d4af37;}
+
+.card button{
+margin-top:10px;
+padding:8px 15px;
+background:#d4af37;
+border:none;
+cursor:pointer;
+}
+
+.cart{
+position:fixed;
+right:0;
+top:0;
+width:300px;
+height:100%;
+background:#111;
+padding:20px;
+overflow:auto;
+}
+.total{color:#d4af37;margin-top:20px;}
+
+.lightbox{
+position:fixed;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+}
+.lightbox img{max-width:80%;}
+
+.filter button:active {
+transform: scale(0.9);
+box-shadow: 0 0 15px #d4af37;
+}
+
+.filter button{
+transition:0.3s;
+}
+
+.card{
+opacity:1;
+transform:scale(1);
+transition:0.4s;
+}
+
+.card.hide{
+opacity:0;
+transform:scale(0.8);
+pointer-events:none;
+}
+
+.ripple{
+position:relative;
+overflow:hidden;
+}
+
+.ripple span{
+position:absolute;
+background:rgba(255,255,255,0.5);
+border-radius:50%;
+transform:scale(0);
+animation:ripple 0.6s linear;
+}
+
+@keyframes ripple{
+to{
+transform:scale(4);
+opacity:0;
+}
+}
+
+.cart-btn{
+position:fixed;
+right:20px;
+bottom:20px;
+background:#d4af37;
+color:#000;
+padding:15px;
+border-radius:50%;
+cursor:pointer;
+font-size:20px;
+z-index:1000;
+}
+
+
+.cart{
+position:fixed;
+right:-320px;
+top:0;
+width:300px;
+height:100%;
+background:#111;
+padding:20px;
+overflow:auto;
+transition:0.4s;
+}
+
+.cart.active{
+right:0;
+}
+
+.card button{
+margin-top:10px;
+padding:10px 18px;
+background:#d4af37;
+border:none;
+cursor:pointer;
+position:relative;
+overflow:hidden;
+transition:0.2s;
+}
+
+
+.card button:active{
+transform:scale(0.9);
+box-shadow:0 0 20px #d4af37;
+}
+
+
+.card button:hover{
+background:#fff;
+color:#000;
+}
+
+
+.card button span{
+position:absolute;
+background:rgba(255,255,255,0.6);
+border-radius:50%;
+transform:scale(0);
+animation:ripple 0.6s linear;
+}
+
+@keyframes ripple{
+to{
+transform:scale(4);
+opacity:0;
+}
+}
+
+.card{
+opacity:1;
+transform:scale(1);
+transition:0.4s ease;
+}
+
+.card.hide{
+opacity:0;
+transform:scale(0.7) rotate(5deg);
+pointer-events:none;
+}
+
+
+.card.show{
+animation:showAnim 0.5s ease;
+}
+
+@keyframes showAnim{
+from{
+opacity:0;
+transform:scale(0.7) translateY(40px);
+}
+to{
+opacity:1;
+transform:scale(1) translateY(0);
+}
+}
+
+.card {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.4s ease;
+}
+
+.card.hide {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.card.show {
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.card button {
+  transition: 0.25s;
+}
+
+.card button:active {
+  transform: scale(0.9);
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+.back-btn{
+background:none;
+border:1px solid #d4af37;
+color:#fff;
+padding:8px 15px;
+cursor:pointer;
+border-radius:6px;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:#d4af37;
+color:#000;
+transform:translateX(-3px);
+}
+
+.back-btn:active{
+transform:scale(0.9);
+}
+.back-btn{
+display:inline-block;
+margin-right:15px;
+padding:8px 18px;
+border:1px solid #d4af37;
+color:#fff;
+text-decoration:none;
+border-radius:8px;
+font-size:14px;
+transition:all 0.3s ease;
+position:relative;
+overflow:hidden;
+}
+
+
+.back-btn:hover{
+background:#d4af37;
+color:#000;
+transform:translateX(-5px);
+box-shadow:0 5px 15px rgba(212,175,55,0.5);
+}
+
+
+.back-btn:active{
+transform:scale(0.9);
+}
+
+
+.back-btn span{
+position:absolute;
+background:rgba(255,255,255,0.5);
+border-radius:50%;
+transform:scale(0);
+animation:ripple 0.6s linear;
+}
+
+@keyframes ripple{
+to{
+transform:scale(4);
+opacity:0;
+}
+}
+</style>
+</head>
+
+<body>
+<div class="cart-btn" onclick="toggleCart()">🛒</div>
+<header><h2>AURUM</h2></header>
+
+
+<div class="filter">
+<button onclick="filterMenu('all')">Баары</button>
+<button onclick="filterMenu('salat')">Салат</button>
+<button onclick="filterMenu('et')">Эт</button>
+<button onclick="filterMenu('dessert')">Десерт</button>
+<button onclick="filterMenu('drink')">Суусундук</button>
+</div>
+
+<div class="cards">
+
+<div class="card salat"><img src="https://assets.allcafe.ru/k/news/canvas/1920x1080/pic/661952120005.png" onclick="openImage(this.src)"><h3>Цезарь</h3><p class="price">800</p><button onclick="addToCart('Цезарь',800)">Кошуу</button></div>
+<div class="card salat"><img src="https://i.ytimg.com/vi/-NlFN1pXX_s/maxresdefault.jpg"><h3>Грек салаты</h3><p class="price">700</p><button onclick="addToCart('Грек салаты',700)">Кошуу</button></div>
+<div class="card salat"><img src="https://www.russianfood.com/dycontent/images_upl/671/big_670339.jpg"><h3>Микс салат</h3><p class="price">900</p><button onclick="addToCart('Микс салат',900)">Кошуу</button></div>
+<div class="card salat"><img src="https://s1.eda.ru/StaticContent/Photos/c/ce/cce59fdc552f4ef5b302ea8fbc5d3ad8.jpg"><h3>Авокадо салат</h3><p class="price">1000</p><button onclick="addToCart('Авокадо салат',1000)">Кошуу</button></div>
+<div class="card salat"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqS2APTA3cofovTbXhmxNbdqSXzmNW0LlKIw&s"><h3>Тунец салат</h3><p class="price">1100</p><button onclick="addToCart('Тунец',1100)">Кошуу</button></div>
+<div class="card salat"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ96dD712UtdDRYAqVvk-UVnTbDmjKyaZrvVQ&s"><h3>Фитнес салат</h3><p class="price">850</p><button onclick="addToCart('Фитнес',850)">Кошуу</button></div>
+<div class="card salat"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR20cmhNDOQry8jl120XjlOR1alVKQ53m4ocA&s"><h3>Жашыл салат</h3><p class="price">600</p><button onclick="addToCart('Жашыл салат',600)">Кошуу</button></div>
+<div class="card salat"><img src="https://i.ytimg.com/vi/wntxixlDYDs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCZ2BrIni8j6RN2-HbBvkhN_Gz23Q"><h3>Сыр салат</h3><p class="price">750</p><button onclick="addToCart('Сыр салат',750)">Кошуу</button></div>
+<div class="card salat"><img src="https://www.russianfood.com/dycontent/images_upl/345/big_344904.jpg"><h3>Овощ салат</h3><p class="price">650</p><button onclick="addToCart('Овощ салат',650)">Кошуу</button></div>
+<div class="card salat"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPlQVrsMGok2CJKVUow2x5S12J6Vj0ks8TtA&s"><h3>Chicken салат</h3><p class="price">950</p><button onclick="addToCart('Chicken салат',950)">Кошуу</button></div>
+
+
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6wSOwi9YmUMjSbvr-_7C7sR61fT3Kd16_Wg&s"><h3>Стейк</h3><p class="price">2000</p><button onclick="addToCart('Стейк',2000)">Кошуу</button></div>
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhDk1GTcrJZdm0CdapGssA6zMcMukTEHHHAg&s"><h3>Т-бон</h3><p class="price">2500</p><button onclick="addToCart('Т-бон',2500)">Кошуу</button></div>
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYPS8ubURWyIo6IitPmGChg1EOtMrpkn3utA&s"><h3>Шашлык</h3><p class="price">1400</p><button onclick="addToCart('Шашлык',1400)">Кошуу</button></div>
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTexaB2K9fgu9HIywAjsvhzKH_4P89cckY0MQ&s"><h3>Плов</h3><p class="price">900</p><button onclick="addToCart('Плов',900)">Кошуу</button></div>
+<div class="card et"><img src="https://masterpiecer-images.s3.yandex.net/f596a27279c411eeadce363fac71b015:upscaled"><h3>Лагман</h3><p class="price">850</p><button onclick="addToCart('Лагман',850)">Кошуу</button></div>
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7EZFTrGW19rwkPE9F9L3ryhhnfMq4NzLqLg&s"><h3>Манты</h3><p class="price">700</p><button onclick="addToCart('Манты',700)">Кошуу</button></div>
+<div class="card et"><img src="https://halal-spb.ru/sites/default/files/styles/large/public/krylyshki-kak-v-kfs-recept.jpg?itok=YzgzaRNX"><h3>Кырылышки</h3><p class="price">1100</p><button onclick="addToCart('Курица',1100)">Кошуу</button></div>
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyK61MtOLcdDK8dU0nnMaW5XbASZPzWT_-Pw&s"><h3>Паста</h3><p class="price">900</p><button onclick="addToCart('Паста',900)">Кошуу</button></div>
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2pj7G6oGNgJyGA__mxt1Lm3SOKkyyopMikQ&s"><h3>Пицца</h3><p class="price">1500</p><button onclick="addToCart('Пицца',1500)">Кошуу</button></div>
+<div class="card et"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWosykig5ghD8SQddcEryJV5nX2GLfm_UNjg&s"><h3>Фри</h3><p class="price">400</p><button onclick="addToCart('Фри',400)">Кошуу</button></div>
+
+
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIQZnyrYgfDo5iYrQCEqh0MUVcnHIxs0Z6hA&s"><h3>Десерт</h3><p class="price">600</p><button onclick="addToCart('Десерт',600)">Кошуу</button></div>
+<div class="card dessert"><img src="https://tortmakers.ru/upload/iblock/eb3/fsitt8c9i4em4g1uj290nep2cxp3vy3h.jpg"><h3>Торт</h3><p class="price">700</p><button onclick="addToCart('Торт',700)">Кошуу</button></div>
+<div class="card dessert"><img src="https://www.osteria.ru/upload/resize_cache/webp/iblock/3e5/pc4aefckri5lutsza2gp9nd06qjyg8o4/DSC03518%2812%29.webp"><h3>Кофе</h3><p class="price">300</p><button onclick="addToCart('Кофе',300)">Кошуу</button></div>
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuzFcdjnAeDTFzYuM-pzgnd7qV4bn-RXyPZQ&s"><h3>Мороженое</h3><p class="price">400</p><button onclick="addToCart('Мороженое',400)">Кошуу</button></div>
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCY7-S6eLKPUNKVh0-NlZ_eJU9x8qyyieztw&s"><h3>Панкейк</h3><p class="price">500</p><button onclick="addToCart('Панкейк',500)">Кошуу</button></div>
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH4_YfQqpmObcV4IS7y7Gx8vWjwY8xnvPdPg&s"><h3>Чизкейк</h3><p class="price">650</p><button onclick="addToCart('Чизкейк',650)">Кошуу</button></div>
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvl5aWJHXxhIFON-3ITp_x7UGLs12DUSUjsA&s"><h3>Маффин</h3><p class="price">300</p><button onclick="addToCart('Маффин',300)">Кошуу</button></div>
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy360J4-uvdY-RZj1jvldPfx-ZrwH0PF-B9w&s"><h3>Шоколад</h3><p class="price">350</p><button onclick="addToCart('Шоколад',350)">Кошуу</button></div>
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCyJ2zBmmiECdn8OLq1xtYnb782UObsIG5bQ&s"><h3>Блинчик</h3><p class="price">450</p><button onclick="addToCart('Блинчик',450)">Кошуу</button></div>
+<div class="card dessert"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3t5H-GPDCahClVfk0Yk6JDrssdNWWBN6H6A&s"><h3>Крем десерт</h3><p class="price">550</p><button onclick="addToCart('Крем десерт',550)">Кошуу</button></div>
+
+
+<div class="card drink"><img src="https://labirintorel.ru/wp-content/uploads/2020/09/coca-cola-dostavka-v-orle-restoran-labirint.jpg"><h3>Кола</h3><p class="price">150</p><button onclick="addToCart('Кола',150)">Кошуу</button></div>
+<div class="card drink"><img src="https://entrevue.fr/wp-content/uploads/2025/12/Avec-ou-sans-pulpe-Quel-jus-d-orange-est-le-meilleur-pour-la-sante.jpg"><h3>Сок</h3><p class="price">200</p><button onclick="addToCart('Сок',200)">Кошуу</button></div>
+<div class="card drink"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBYUV1wT6L4kfz5jiHywD3DZMHgOW5YYsGbg&s"><h3>Кофе латте</h3><p class="price">300</p><button onclick="addToCart('Латте',300)">Кошуу</button></div>
+<div class="card drink"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwcueWkuTez1sch5qQcwpsOrmTac-8Cb6RVA&s"><h3>Капучино</h3><p class="price">300</p><button onclick="addToCart('Капучино',300)">Кошуу</button></div>
+<div class="card drink"><img src="https://i0.wp.com/antennadaily.ru/wp-content/uploads/2021/09/Turkish-black-tea%D0%93%D0%BB%D0%B0%D0%B2.jpeg?fit=1200%2C900&ssl=1"><h3>Чай</h3><p class="price">150</p><button onclick="addToCart('Чай',150)">Кошуу</button></div>
+<div class="card drink"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC6T8Hw4ZTxIirnP0zv4nzdqS6vqFCQ_WO-g&s"><h3>Американо</h3><p class="price">250</p><button onclick="addToCart('Американо',250)">Кошуу</button></div>
+<div class="card drink"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjAKat5Zi9B9TqaAFBUvjnbahvXkOlnIl3Iw&s"><h3>Мохито</h3><p class="price">400</p><button onclick="addToCart('Мохито',400)">Кошуу</button></div>
+<div class="card drink"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIJogEIr3DTipJOvn_Mdm04AH5BsXT8CAfpA&s"><h3>Коктейль</h3><p class="price">500</p><button onclick="addToCart('Коктейль',500)">Кошуу</button></div>
+<div class="card drink"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQfGs2gJmVUPpWwl5fTKgp1c0JZx4Dj_YWgw&s"><h3>Эспрессо</h3><p class="price">200</p><button onclick="addToCart('Эспрессо',200)">Кошуу</button></div>
+<div class="card drink"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLlDYUYRw4PqkZo_MzdKQGBciQ7ugUaTHs3A&s"><h3>Смузи</h3><p class="price">350</p><button onclick="addToCart('Смузи',350)">Кошуу</button></div>
+
+</div>
+
+
+<div class="cart" id="cart">
+<h3> Корзина</h3>
+<div id="cartItems"></div>
+<div class="total">Жалпы: <span id="total">0</span> сом</div>
+</div>
+
+
+<div class="lightbox" id="lightbox" onclick="this.style.display='none'">
+<img id="bigImg">
+</div>
+
+<script>
+let total=0;
+
+
+function addToCart(name,price){
+let item=document.createElement("p");
+item.innerText = name+" - "+price+" сом";
+document.getElementById("cartItems").appendChild(item);
+total+=price;
+document.getElementById("total").innerText=total;
+}
+
+
+function openImage(src){
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("bigImg").src=src;
+}
+document.querySelectorAll("button").forEach(btn=>{
+btn.classList.add("ripple");
+
+btn.addEventListener("click", function(e){
+let circle=document.createElement("span");
+circle.style.left=e.offsetX+"px";
+circle.style.top=e.offsetY+"px";
+this.appendChild(circle);
+
+setTimeout(()=>circle.remove(),600);
+});
+});
+function toggleCart(){
+document.getElementById("cart").classList.toggle("active");
+}
+document.querySelectorAll(".card button").forEach(btn=>{
+btn.addEventListener("click", function(e){
+
+let circle=document.createElement("span");
+
+let x = e.offsetX;
+let y = e.offsetY;
+
+circle.style.left = x + "px";
+circle.style.top = y + "px";
+
+this.appendChild(circle);
+
+setTimeout(()=>{
+circle.remove();
+},600);
+
+});
+});
+function filterMenu(type){
+let cards = document.querySelectorAll(".card");
+
+cards.forEach(card=>{
+card.classList.add("hide");
+card.classList.remove("show");
+});
+
+setTimeout(()=>{
+cards.forEach(card=>{
+if(type=="all" || card.classList.contains(type)){
+card.style.display="block";
+card.classList.remove("hide");
+card.classList.add("show");
+}else{
+card.style.display="none";
+}
+});
+},200);
+}
+document.querySelectorAll(".back-btn").forEach(btn=>{
+btn.addEventListener("click", function(e){
+
+let circle=document.createElement("span");
+
+circle.style.left = e.offsetX + "px";
+circle.style.top = e.offsetY + "px";
+
+this.appendChild(circle);
+
+setTimeout(()=>{
+circle.remove();
+},600);
+
+});
+});
+</script>
+
+</body>
+</html>

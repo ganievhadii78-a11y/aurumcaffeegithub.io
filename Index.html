@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURUM Restaurant</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+font-family:Poppins;
+background:#0b0b0b;
+color:#fff;
+}
+
+
+header{
+display:flex;
+justify-content:space-between;
+padding:20px 60px;
+position:fixed;
+width:100%;
+background:rgba(0,0,0,0.7);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-family:'Playfair Display';
+font-size:28px;
+color:#d4af37;
+}
+
+nav a{
+margin-left:25px;
+color:#fff;
+text-decoration:none;
+transition:0.3s;
+}
+nav a:hover{color:#d4af37;}
+
+.hero{
+height:100vh;
+background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=1600') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+top:0;
+left:0;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
+
+.hero h1{
+font-size:70px;
+font-family:'Playfair Display';
+}
+
+.hero p{
+margin:20px 0;
+font-size:18px;
+}
+
+.btn{
+padding:15px 35px;
+background:#d4af37;
+border:none;
+cursor:pointer;
+transition:0.3s;
+font-weight:600;
+text-decoration:none;
+color:#000;
+display:inline-block;
+}
+.btn:hover{
+background:#b8962e;
+transform:scale(1.05);
+}
+
+
+.features{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:80px;
+flex-wrap:wrap;
+}
+
+.feature{
+width:250px;
+text-align:center;
+}
+
+.feature h3{
+margin:15px 0;
+color:#d4af37;
+}
+
+.preview{
+padding:100px 60px;
+text-align:center;
+}
+
+.preview h2{
+font-family:'Playfair Display';
+font-size:40px;
+margin-bottom:40px;
+color:#d4af37;
+}
+
+.cards{
+display:flex;
+gap:30px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.card{
+width:280px;
+background:#111;
+border-radius:15px;
+overflow:hidden;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+}
+
+.card h3{
+margin:15px;
+}
+
+.card p{
+color:#d4af37;
+margin-bottom:15px;
+}
+
+.cta{
+background:url('https://avatars.mds.yandex.net/i?id=2a8f967450d5587190cad304ff764937_l-5481592-images-thumbs&n=13') center/cover;
+position:relative;
+padding:120px 20px;
+text-align:center;
+color:#fff;
+}
+
+.cta::after{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+}
+
+.cta-content{
+position:relative;
+z-index:2;
+}
+
+.cta h2{
+font-size:55px;
+font-family:'Playfair Display';
+}
+
+.cta p{
+margin:20px 0;
+font-size:22px;
+}
+
+footer{
+background:#000;
+padding:40px;
+text-align:center;
+color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">AURUM</div>
+<nav>
+<a href="index.html">Башкы бет</a>
+<a href="meny.html">Меню</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>AURUM Restaurant</h1>
+<p>Место для встречи</p>
+<button class="btn">Стол брондоо</button>
+</div>
+</section>
+
+<section class="features">
+<div class="feature">
+<h3> Даам</h3>
+<p>Жогорку сапаттагы тамактар</p>
+</div>
+
+<div class="feature">
+<h3> Сервис</h3>
+<p>Кесипкөй кызмат көрсөтүү</p>
+</div>
+
+<div class="feature">
+<h3> Атмосфера</h3>
+<p>Люкс интерьер жана комфорт</p>
+</div>
+</section>
+
+
+<section class="preview">
+<h2>Меню</h2>
+
+<div class="cards">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c">
+<h3>Салат</h3>
+<h3>Жаңы жашылчалардан — салат жалбырагы, помидор, бадыраң жана жеңил соус менен аралашкан пайдалуу салат</h3>
+<p>150 сом</p>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d">
+<h3>Бургер</h3>
+<h3>Жумшак нан, ширелүү уй эти, эриген сыр, жаңы салат жалбырактары жана өзгөчө соус менен даярдалган даамдуу бургер</h3>
+<p>200 сом</p>
+</div>
+
+<div class="card">
+<img src="https://avatars.mds.yandex.net/get-vertis-journal/4471904/43c1ed89-18f7-4cbe-a371-747f06ee5b2c.jpeg/1600x1600">
+<h3>Стейк</h3>
+<h3>Жогорку сапаттагы уй этинен жасалып, туз жана жыпар жыттуу калемпир менен куурулган ширелүү стейк</h3>
+<p>1200 сом</p>
+</div>
+
+</div>
+</section>
+
+
+<section class="cta">
+<div class="cta-content">
+<h2>AURUM</h2>
+<p>место для встречи</p>
+
+<a href="contact.html" class="btn">Адрес</a>
+</div>
+</section>
+
+<footer>
+© 2026 AURUM Restaurant
+</footer>
+
+</body>
+</html>
